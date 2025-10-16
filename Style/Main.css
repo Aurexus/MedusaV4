@@ -1,0 +1,32 @@
+     * {
+          box-sizing: border-box;
+     }
+
+     html, body {
+          height: 100vh;
+          margin: 0;
+          font-family: "Poppins", sans-serif;
+          display: flex;
+          flex-direction: column;
+          background: #f7f8ff;
+     }
+
+     #header-container {
+          background: #fff;
+          text-align: center;
+          font-weight: 600;
+          color: #333;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    #footer-container { 
+          box-shadow: 0 -2px 8px rgba(0,0,0,0.05); 
+    }
+
+    main {
+          flex: 1;
+          display: flex;
+          overflow: hidden;
+          padding: 12px;
+          gap: 0;
+    }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="left-bg"></div>
+    <div class="logo-title">
+      <div class="circle-logo">
+        <img src="../Images/Aurexuslogo.png" alt="Company Logo">
+      </div>
+      <h3>Medusa V4</h3>
+    </div>
+
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Menu -->
+    <div class="menu" id="menu">
+      <a href="Index.html" class="active">Tableau de bord</a>
+      <a href="Image.html">Images</a>
+      <a href="Test.html">Test</a>
+      <a href="Anomalies.html">Anomalies</a>
+      <a href="Form.html">Notices</a>
+    </div>
+
+    <!-- Right section -->
+    <div class="right">
+      <div class="rectangle-logo">
+        <img src="../Images/Aurexus.png" alt="Rectangle Logo">
+      </div>
+
+      <div class="toggle" onclick="toggleLang()">
+        <span id="fr">
+          <img src="../Images/fr.png" alt="FR"> FR
+        </span>
+        <span id="en" class="active">
+          <img src="../Images/en.png" alt="EN"> EN
+        </span>
+      </div>
+
+      <div class="profile" onclick="toggleDropdown()">P</div>
+
+      <div class="dropdown" id="dropdownMenu">
+        <div class="user-info">
+          <strong>Aswathi</strong>
+          <small>Admin</small>
+        </div>
+        <a href="#">Edit Profile</a>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+
+
+
+
+
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <style>
+   
+
+    /* Footer */
+    .site-footer {
+      background: #fff;
+      text-align: center;
+      font-weight: 600;
+      color: #333;
+      padding: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    /* Chatbot Button */
+    .chatbot-button {
+      position: fixed;
+      bottom: 20px;
+      right: 25px;
+      background-color: #101061;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .chatbot-button:hover {
+      background-color: #101061d3;
+      transform: scale(1.05);
+    }
+
+    /* Chat Window */
+    .chatbot-window {
+      position: fixed;
+      bottom: 90px;
+      right: 25px;
+      width: 320px;
+      height: 420px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 998999;
+    }
+
+    .chat-header {
+      background:#101061;
+      color: white;
+      padding: 12px 15px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chat-body {
+      flex: 1;
+      padding: 10px;
+      background: #f1f1f1;
+      overflow-y: auto;
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+    }
+
+    .chat-input button {
+      background:#101061d7;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    .chat-input button:hover {
+      background:#101061;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="flex: 1"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Aurexus.</p>
+  </footer>
+
+  <!-- Chatbot Toggle Button -->
+  <button id="chatbotToggle" class="chatbot-button">
+    <i class="fas fa-comment-dots"></i>
+  </button>
+
+  <!-- Chatbot Window -->
+  <div id="chatbotWindow" class="chatbot-window">
+    <div class="chat-header">
+      MEDUSA V4
+      <i id="closeChat" class="fas fa-times" style="cursor: pointer;"></i>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <p><strong>Bot:</strong> Hi there! How can I help you today?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userMessage" placeholder="Type your message..." />
+      <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <!-- Script -->
+ 
+</body>
+

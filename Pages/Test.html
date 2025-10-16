@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resizable Split Layout</title>
+   <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../Style/Header.css">
+  <link rel="stylesheet" href="../Style/Main.css">
+  <link rel="stylesheet" href="../Style/Test.css">
+</head>
+<body>
+  <div id="header-container">Header Area</div>
+  <main>
+    <div class="left-panel">
+      <h3>Filtrer les données</h3>
+      <label for="lot">Lot(s)</label>
+      <select id="lot">
+        <option value="">TOUT</option>
+        <option value="lot1">Lot 1</option>
+        <option value="lot2">Lot 2</option>
+      </select>
+
+      <label for="traitement">Traitement</label>
+      <select id="traitement">
+        <option value="">TOUT</option>
+        <option value="SAISIE">SAISIE</option>
+        <option value="ENRICHISSEMENT">ENRICHISSEMENT</option>
+        <option value="DERIVATION">DERIVATION</option>
+      </select>
+
+      <label for="anomalie">Code d’anomalie</label>
+      <select id="anomalie">
+        <option value="">TOUT</option>
+        <option value="ERR1">Erreur 1</option>
+        <option value="ERR2">Erreur 2</option>
+      </select>
+
+      <label for="statut">Statut</label>
+      <select id="statut">
+        <option value="">TOUT</option>
+        <option value="ACTIF">Actif</option>
+        <option value="INACTIF">Inactif</option>
+      </select>
+
+      <label for="filtrer">Filtrer par</label>
+      <select id="filtrer">
+        <option value="IMAGE">IMAGE</option>
+        <option value="TEXTE">TEXTE</option>
+      </select>
+
+      <label for="type">Type de filtre</label>
+      <select id="type">
+        <option value="AZ">A-Z SORT</option>
+        <option value="ZA">Z-A SORT</option>
+      </select>
+
+      <label for="cote">Cote</label>
+      <select id="cote">
+        <option value="">COTE</option>
+        <option value="C1">C1</option>
+        <option value="C2">C2</option>
+      </select>
+
+      <div class="filter-actions">
+        <button id="applyFilter">Filtre</button>
+        <button class="export-btn">Exporter</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="right-panel">
+      <table id="myTable" class="display">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Lots</th>
+              <th>Dossier</th>
+              <th>Image</th>
+              <th>Traitement</th>
+              <th>Qcote</th>
+              <th>Type</th>
+              <th>Anomalie</th>
+              <th>Response</th>
+              <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="#" class="bookmark-btn"><i class="fas fa-star"></i></a></td><td>can3_027</td><td>27F05</td><td>'.jpg</td><td>ENRICHISSEMENT</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_001</td><td>27A01</td><td>20A01_00012.jpg</td><td>SAISIE</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_002</td><td>27A02</td><td>20A01_00019.jpg</td><td>ENRICHISSEMENT</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_003</td><td>27A03</td><td>20A01_00026.jpg</td><td>ENRICHISSEMENT</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_004</td><td>27A04</td><td>20A01_00033.jpg</td><td>SAISIE</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_005</td><td>27A05</td><td>20A01_00041.jpg</td><td>ENRICHISSEMENT</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_006</td><td>27A06</td><td>20A01_00049.jpg</td><td>SAISIE</td><td>236682</td><td>-</td><td><span class="status-error">Date d'édition : zone 214 Sd</span></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_007</td><td>27A07</td><td>20A01_00057.jpg</td><td>ENRICHISSEMENT</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_008</td><td>27A08</td><td>20A01_00062.jpg</td><td>SAISIE</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_009</td><td>27A09</td><td>20A01_00070.jpg</td><td>SAISIE</td><td>236682</td><td>-</td><td><span class="status-error">Date d'édition : zone 214 Sd</span></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_010</td><td>27A10</td><td>20A01_00071.jpg</td><td>ENRICHISSEMENT</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_011</td><td>27B01</td><td>20A01_00072.jpg</td><td>ENRICHISSEMENT</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_012</td><td>27B02</td><td>20A01_00073.jpg</td><td>SAISIE</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_013</td><td>27B06</td><td>20A01_00074.jpg</td><td>ENRICHISSEMENT</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_013</td><td>27B06</td><td>20A01_00074.jpg</td><td>ENRICHISSEMENT</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_013</td><td>27B06</td><td>20A01_00074.jpg</td><td>ENRICHISSEMENT</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+          <tr><td><a href="#" class="bookmark-btn"><i class="far fa-star"></i></a></td><td>can3_013</td><td>27B06</td><td>20A01_00074.jpg</td><td>ENRICHISSEMENT</td><td>236682</td><td>-</td><td></td><td><span class="status-ok">OK - ajouté</span></td><td><a href="#" class="edit-btn"><i class="fas fa-edit"></i></a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <div id="footer-container">Footer Area</div>
+  
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="../Script/header.js"></script>
+  <script src="../Script/Footer.js"></script>
+  <script src="../Script/TableDivider.js"></script>
+  <script src="../Script/DataTable.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Gallery</title>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
+  <!-- Very Simple Image Viewer -->
+  <link rel="stylesheet" href="https://meshesha.github.io/verySimpleImageViewer/css/ImageViewer.css" />
+  <script src="https://meshesha.github.io/verySimpleImageViewer/js/jquery.verySimpleImageViewer.js"></script>
+  <link rel="stylesheet" href="../Style/Header.css">
+  <link rel="stylesheet" href="../Style/Main.css">
+  <link rel="stylesheet" href="../Style/Image.css">
+</head>
+<body>
+
+  <div id="header-container">Header Area</div>
+
+  <main>
+    <div class="content-area">
+
+      <!-- Folder Panel -->
+      <div class="left-panel folder-panel" id="left1">
+        <div class="image-header">
+            <h3><i class="fas fa-folder-open"></i> Folders (11)</h3>
+        </div>
+        
+        <div class="folder-list">
+          <div class="folder-item"><i class="fas fa-folder"></i> Nature</div>
+          <div class="folder-item"><i class="fas fa-folder"></i> Architecture</div>
+          <div class="folder-item"><i class="fas fa-folder"></i> Animals</div>
+          <div class="folder-item"><i class="fas fa-folder"></i> Travel</div>
+          <div class="folder-item"><i class="fas fa-folder"></i> Portraits</div>
+          <div class="folder-item"><i class="fas fa-folder"></i> Abstract</div>
+          <div class="folder-item"><i class="fas fa-folder"></i> Food</div>
+          <div class="folder-item"><i class="fas fa-folder"></i> Sports</div>
+          <div class="folder-item"><i class="fas fa-folder"></i> Cars</div>
+          <div class="folder-item"><i class="fas fa-folder"></i> Flowers</div>
+          <div class="folder-item"><i class="fas fa-folder"></i> Others</div>
+        </div>
+      </div>
+
+      <div class="divider" id="divider1"></div>
+
+      <!-- Image Panel -->
+      <div class="left-panel image-panel" id="left2">
+        <div class="image-header">
+            <h3><i class="fas fa-images"></i> Images (334)</h3>
+            <select class="image-filter">
+                <option value="all">Toutes</option>
+                <option value="jpg">JPG</option>
+                <option value="png">PNG</option>
+                <option value="gif">GIF</option>
+                <option value="svg">SVG</option>
+            </select>
+        </div>
+        
+        <div class="image-list">
+          <div class="image-item"><img src="https://placehold.co/40x40/4b4cff/fff"/> image_001.jpg</div>
+          <div class="image-item"><img src="https://placehold.co/40x40/ffaa00/fff"/> image_002.jpg</div>
+          <div class="image-item"><img src="https://placehold.co/40x40/ff3366/fff"/> image_003.jpg</div>
+          <div class="image-item"><img src="https://placehold.co/40x40/00cc88/fff"/> image_004.jpg</div>
+          <div class="image-item"><img src="https://placehold.co/40x40/0099ff/fff"/> image_005.jpg</div>
+          <div class="image-item"><img src="https://placehold.co/40x40/6600ff/fff"/> image_006.jpg</div>
+          <div class="image-item"><img src="https://placehold.co/40x40/cc33cc/fff"/> image_007.jpg</div>
+          <div class="image-item"><img src="https://placehold.co/40x40/ff6600/fff"/> image_008.jpg</div>
+          <div class="image-item"><img src="https://placehold.co/40x40/44aa44/fff"/> image_009.jpg</div>
+          <div class="image-item"><img src="https://placehold.co/40x40/999999/fff"/> image_010.jpg</div>
+        </div>
+      </div>
+
+      <div class="divider" id="divider2"></div>
+
+      <!-- Right Panel (Image Viewer) -->
+      <div class="right-panel">
+        <div id="your_div_image_container"></div>
+
+        <!-- Thumbnail Pagination -->
+        <div class="thumbnail-gallery-wrapper">
+          <button class="thumb-nav thumb-prev">&#10094;</button>
+          <div class="thumbnail-gallery" id="thumbnailGallery"></div>
+          <button class="thumb-nav thumb-next">&#10095;</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container">Footer Area</div>
+
+  <script src="../Script/ImageDivider.js"></script>
+  <script src="../Script/ImageGallery.js"></script>
+  <script src="../Script/header.js"></script>
+  <script src="../Script/Footer.js"></script>
+</body>
+</html>

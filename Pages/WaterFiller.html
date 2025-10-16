@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress UI with Animated Water Waves</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <style>
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    /* background: white; */
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  h1 {
+    color: #2e3a48;
+    margin-bottom: 20px;
+    padding: 0px;
+    text-align: center;
+  }
+
+  svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .percentage {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2em;
+    font-weight: bold;
+    z-index: 2;
+    white-space: nowrap;
+  }
+
+  .filled-text {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  }
+
+  .unfilled-text {
+    color: #101061;
+    text-shadow: none;
+  }
+
+  /* Circle container */
+  .circle-container {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 2px solid #d3e2eb;
+    overflow: hidden;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+    background: white;
+    margin-bottom: 40px;
+  }
+
+  /* Place percentages inside circle */
+  .circle-container .filled-text {
+    bottom: 25%;
+  }
+  .circle-container .unfilled-text {
+    top: 25%;
+  }
+
+  /* Row layout */
+  .progress-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 120px;
+    min-width: 140px;
+  }
+
+  .step i {
+    font-size: 38px;
+    color: #2e3a48;
+  }
+
+  .label {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #2e3a48;
+    text-align: center;
+  }
+
+  /* Rectangular water container */
+  .water-container {
+    position: relative;
+    width: 120px;
+    height: 180px;
+    border: 3px solid #d3e2eb;
+    border-radius: 12px;
+    background: white;
+    overflow: hidden;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
+  }
+
+  /* Position percentages for rectangle */
+  .water-container .filled-text {
+    bottom: 15%;
+  }
+  .water-container .unfilled-text {
+    top: 3%;
+  }
+
+  /* ✅ Responsive behavior */
+  @media (max-width: 1000px) {
+    .progress-row {
+      gap: 30px;
+    }
+    .water-container {
+      width: 100px;
+      height: 150px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .progress-row {
+      flex-direction: column;
+      align-items: center;
+    }
+    .step {
+      flex: none;
+      width: 80%;
+      max-width: 280px;
+    }
+    .water-container {
+      width: 100%;
+      max-width: 250px;
+      height: 160px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .circle-container {
+      width: 140px;
+      height: 140px;
+    }
+    .water-container {
+      height: 140px;
+    }
+    .label {
+      font-size: 1em;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <h1>Progression des étapes</h1>
+
+  <!-- Circle -->
+  <div class="circle-container" data-progress="61">
+    <svg viewBox="0 0 200 200" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="waterGradientCircle" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#101061"/>
+                <stop offset="100%" stop-color="#101061"/>
+        </linearGradient>
+      </defs>
+      <path class="wave1" fill="url(#waterGradientCircle)"></path>
+      <path class="wave2" fill="url(#waterGradientCircle)" opacity="0.6"></path>
+    </svg>
+    <div class="percentage filled-text"></div>
+    <div class="percentage unfilled-text"></div>
+  </div>
+
+  <!-- Row of Stages -->
+  <div class="progress-row">
+    <div class="step">
+      <i class="fas fa-cog"></i>
+      <div class="label">Océrisation</div>
+      <div class="water-container" data-progress="100">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waterGradient1" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#101061"/>
+                <stop offset="100%" stop-color="#101061"/>
+            </linearGradient>
+          </defs>
+          <path class="wave1" fill="url(#waterGradient1)"></path>
+          <path class="wave2" fill="url(#waterGradient1)" opacity="0.6"></path>
+        </svg>
+        <div class="percentage filled-text"></div>
+        <div class="percentage unfilled-text"></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <i class="fas fa-search"></i>
+      <div class="label">Contrôle OCR</div>
+      <div class="water-container" data-progress="60">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waterGradient2" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#101061"/>
+                <stop offset="100%" stop-color="#101061"/>
+            </linearGradient>
+          </defs>
+          <path class="wave1" fill="url(#waterGradient2)"></path>
+          <path class="wave2" fill="url(#waterGradient2)" opacity="0.6"></path>
+        </svg>
+        <div class="percentage filled-text"></div>
+        <div class="percentage unfilled-text"></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <i class="fas fa-file-alt"></i>
+      <div class="label">Métadonnées</div>
+      <div class="water-container" data-progress="40">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waterGradient3" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#101061"/>
+              <stop offset="100%" stop-color="#101061"/>
+            </linearGradient>
+          </defs>
+          <path class="wave1" fill="url(#waterGradient3)"></path>
+          <path class="wave2" fill="url(#waterGradient3)" opacity="0.6"></path>
+        </svg>
+        <div class="percentage filled-text"></div>
+        <div class="percentage unfilled-text"></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <i class="fas fa-database"></i>
+      <div class="label">Indexation</div>
+      <div class="water-container" data-progress="20">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waterGradient4" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#101061"/>
+              <stop offset="100%" stop-color="#101061"/>
+            </linearGradient>
+          </defs>
+          <path class="wave1" fill="url(#waterGradient4)"></path>
+          <path class="wave2" fill="url(#waterGradient4)" opacity="0.6"></path>
+        </svg>
+        <div class="percentage filled-text"></div>
+        <div class="percentage unfilled-text"></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <i class="fas fa-truck"></i>
+      <div class="label">Livraison</div>
+      <div class="water-container" data-progress="22">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waterGradient5" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#101061"/>
+              <stop offset="100%" stop-color="#101061"/>
+            </linearGradient>
+          </defs>
+          <path class="wave1" fill="url(#waterGradient5)"></path>
+          <path class="wave2" fill="url(#waterGradient5)" opacity="0.6"></path>
+        </svg>
+        <div class="percentage filled-text"></div>
+        <div class="percentage unfilled-text"></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <i class="fas fa-truck"></i>
+      <div class="label">Livraison</div>
+      <div class="water-container" data-progress="45">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waterGradient5" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#101061"/>
+              <stop offset="100%" stop-color="#101061"/>
+            </linearGradient>
+          </defs>
+          <path class="wave1" fill="url(#waterGradient5)"></path>
+          <path class="wave2" fill="url(#waterGradient5)" opacity="0.6"></path>
+        </svg>
+        <div class="percentage filled-text"></div>
+        <div class="percentage unfilled-text"></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <i class="fas fa-truck"></i>
+      <div class="label">Livraison</div>
+      <div class="water-container" data-progress="40">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waterGradient5" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#101061"/>
+              <stop offset="100%" stop-color="#101061"/>
+            </linearGradient>
+          </defs>
+          <path class="wave1" fill="url(#waterGradient5)"></path>
+          <path class="wave2" fill="url(#waterGradient5)" opacity="0.6"></path>
+        </svg>
+        <div class="percentage filled-text"></div>
+        <div class="percentage unfilled-text"></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <i class="fas fa-truck"></i>
+      <div class="label">Livraison</div>
+      <div class="water-container" data-progress="20">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waterGradient5" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#101061"/>
+              <stop offset="100%" stop-color="#101061"/>
+            </linearGradient>
+          </defs>
+          <path class="wave1" fill="url(#waterGradient5)"></path>
+          <path class="wave2" fill="url(#waterGradient5)" opacity="0.6"></path>
+        </svg>
+        <div class="percentage filled-text"></div>
+        <div class="percentage unfilled-text"></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <i class="fas fa-truck"></i>
+      <div class="label">Livraison</div>
+      <div class="water-container" data-progress="5">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waterGradient5" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#101061"/>
+              <stop offset="100%" stop-color="#101061"/>
+            </linearGradient>
+          </defs>
+          <path class="wave1" fill="url(#waterGradient5)"></path>
+          <path class="wave2" fill="url(#waterGradient5)" opacity="0.6"></path>
+        </svg>
+        <div class="percentage filled-text"></div>
+        <div class="percentage unfilled-text"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script>
+    function setWater(container) {
+      const progress = parseInt(container.getAttribute("data-progress"));
+      const wave1 = container.querySelector(".wave1");
+      const wave2 = container.querySelector(".wave2");
+      const filledText = container.querySelector(".filled-text");
+      const unfilledText = container.querySelector(".unfilled-text");
+
+      const isCircle = container.classList.contains("circle-container");
+      const svgHeight = isCircle ? 200 : 100;
+      const svgWidth = isCircle ? 200 : 100;
+
+      const level = svgHeight - (progress * svgHeight / 100);
+
+      let tick = 0;
+      function animate() {
+        tick += 0.03; // slower animation
+
+        // Wave 1
+        let d1 = `M0,${level}`;
+        for (let x = 0; x <= svgWidth; x += 5) {
+          const y = level + Math.sin((x / 20) + tick) * 4;
+          d1 += ` L${x},${y}`;
+        }
+        d1 += ` L${svgWidth},${svgHeight} L0,${svgHeight} Z`;
+        wave1.setAttribute("d", d1);
+
+        // Wave 2
+        let d2 = `M0,${level}`;
+        for (let x = 0; x <= svgWidth; x += 5) {
+          const y = level + Math.sin((x / 30) + tick * 1.5) * 6;
+          d2 += ` L${x},${y}`;
+        }
+        d2 += ` L${svgWidth},${svgHeight} L0,${svgHeight} Z`;
+        wave2.setAttribute("d", d2);
+
+        // ✅ Always show percentages
+        if (filledText) {
+          filledText.textContent = progress + "% ";
+          filledText.style.display = progress > 0 ? "block" : "none";
+        }
+        if (unfilledText) {
+          unfilledText.textContent = (100 - progress) + "% ";
+          unfilledText.style.display = progress < 100 ? "block" : "none";
+        }
+
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setWater(document.querySelector(".circle-container"));
+      document.querySelectorAll(".water-container").forEach(container => setWater(container));
+    });
+  </script> -->
+<script>
+  function setWater(container) {
+    const targetProgress = parseInt(container.getAttribute("data-progress"));
+    const wave1 = container.querySelector(".wave1");
+    const wave2 = container.querySelector(".wave2");
+    const filledText = container.querySelector(".filled-text");
+    const unfilledText = container.querySelector(".unfilled-text");
+
+    const isCircle = container.classList.contains("circle-container");
+    const svgHeight = isCircle ? 200 : 100;
+    const svgWidth = isCircle ? 200 : 100;
+
+    let tick = 0;
+    let currentProgress = 0; // start empty
+    const fillSpeed = 0.5; // adjust this for faster/slower filling
+
+    function animate() {
+      tick += 0.03;
+
+      // Smoothly animate progress to target
+      if (currentProgress < targetProgress) {
+        currentProgress += fillSpeed;
+      }
+      if (currentProgress > targetProgress) {
+        currentProgress = targetProgress;
+      }
+
+      const level = svgHeight - (currentProgress * svgHeight / 100);
+
+      // Wave 1
+      let d1 = `M0,${level}`;
+      for (let x = 0; x <= svgWidth; x += 5) {
+        const y = level + Math.sin((x / 20) + tick) * 4;
+        d1 += ` L${x},${y}`;
+      }
+      d1 += ` L${svgWidth},${svgHeight} L0,${svgHeight} Z`;
+      wave1.setAttribute("d", d1);
+
+      // Wave 2
+      let d2 = `M0,${level}`;
+      for (let x = 0; x <= svgWidth; x += 5) {
+        const y = level + Math.sin((x / 30) + tick * 1.5) * 6;
+        d2 += ` L${x},${y}`;
+      }
+      d2 += ` L${svgWidth},${svgHeight} L0,${svgHeight} Z`;
+      wave2.setAttribute("d", d2);
+
+      // ✅ Animated percentage updates
+      const progressText = Math.round(currentProgress);
+      if (filledText) {
+        filledText.textContent = progressText + "%";
+        filledText.style.display = progressText > 0 ? "block" : "none";
+      }
+      if (unfilledText) {
+        unfilledText.textContent = (100 - progressText) + "%";
+        unfilledText.style.display = progressText < 100 ? "block" : "none";
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    setWater(document.querySelector(".circle-container"));
+    document.querySelectorAll(".water-container").forEach(container => setWater(container));
+  });
+</script>
+
+</body>
+</html>

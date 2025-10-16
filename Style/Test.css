@@ -1,0 +1,226 @@
+ /* Left Panel */
+    .left-panel {
+      width: 15%;
+      min-width: 130px;
+      max-width: 50%;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      padding: 12px;
+      overflow-y: auto;
+      transition: width 0.2s ease;
+    }
+
+    .left-panel h3{
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #101061;
+    }
+    .left-panel label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #333;
+    }
+    .left-panel input,
+    .left-panel select,
+    .left-panel button {
+      width: 100%;           
+      box-sizing: border-box; 
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .filter-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .filter-actions button {
+      flex: 1; /* 🔹 Equal button width */
+      margin-bottom: 0;
+    }
+
+    .left-panel button {
+      background: #101061;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .left-panel button:hover {
+      background: #0b0b40;
+    }
+
+    .export-btn {
+      background: #555;
+    }
+
+    .export-btn:hover {
+      background: #333;
+    }
+
+     /* Divider */
+    .divider {
+      width: 6px;
+      cursor: col-resize;
+      background: linear-gradient(to bottom, #ccc, #999);
+      border-radius: 3px;
+      margin: 0 4px;
+    }
+
+    .divider:hover {
+      background: #007bff;
+    }
+
+    /* Right Panel */
+    .right-panel {
+      flex: 1;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      padding: 12px;
+      overflow-y: auto;
+    }
+
+    table.dataTable {
+      width: 100% !important;
+      border-collapse: collapse;
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 14px;
+      background: var(--white);
+    }
+
+    table.dataTable thead th {
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      padding: 12px 16px;
+      border-bottom: none;
+    }
+
+    table.dataTable tbody td {
+      padding: 12px 16px;
+      color: var(--text);
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    table.dataTable tbody tr {
+      background: #fff !important; /* uniform background */
+    }
+
+    table.dataTable tbody tr:hover {
+      background: #f5f8ff !important;
+      transition: 0.2s;
+    }
+
+    /* Pagination buttons */
+    .dataTables_wrapper .dataTables_paginate {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      background: var(--white);
+      border: 1px solid var(--primary);
+      color: var(--primary) !important;
+      padding: 6px 12px;
+      margin: 0 3px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      background: var(--primary);
+      color: var(--white) !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+      background: var(--primary);
+      color: var(--white) !important;
+      border: 1px solid var(--primary);
+    }
+
+    /* Search box + dropdown */
+    .dataTables_wrapper .dataTables_filter input {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 6px 10px;
+      margin-left: 8px;
+      outline: none;
+    }
+
+    .dataTables_wrapper .dataTables_length select {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 5px 8px;
+      margin-left: 5px;
+    }
+
+    .dataTables_length {
+  margin-bottom: 15px;   /* space below "Afficher entrées" */
+}
+
+.dataTables_filter {
+  margin-bottom: 15px;   /* space below "Rechercher" */
+}
+
+/* Make dropdown and search further apart (horizontal space) */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+  margin-right: 20px;
+}
+
+/* Add space between the table and its controls */
+.dataTables_wrapper .dataTables_scroll,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+  margin-top: 15px;
+}
+
+
+
+.edit-btn {
+  color: var(--primary);
+  font-size: 16px;
+  padding: 4px 6px;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.edit-btn:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.status-ok {
+  display: inline-block;
+  background: #e6f4ea;     /* light green background */
+  color: #34a853;          /* Google green-like text */
+  font-weight: 600;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 999px;    /* pill shape */
+}
+.status-ok:hover {
+  background: #d9f2e0;
+}
+
+.status-error {
+  display: inline-block;
+  background: #ffe8e8;    /* light red background */
+  color: #ea4335;         /* red text */
+  font-weight: 600;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 999px;   /* pill shape */
+}
